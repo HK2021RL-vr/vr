@@ -142,8 +142,10 @@
   <head>
     <meta charset="utf-8">
 	<title>Veebirakendused ja nende loomine 2021</title>
+	<link rel="stylesheet" href="stiil.css">
   </head>
   <body>
+	<div class="container">
     <h1>Loo endale kasutajakonto</h1>
 	<p>See leht on valminud õppetöö raames!</p>
 	<hr>
@@ -215,6 +217,8 @@
 	</form>
 	<hr>
 	<p>Tagasi <a href="page.php">avalehele</a></p>
+	
     <hr>
+	</div>
   </body>
 </html>

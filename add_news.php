@@ -1,16 +1,13 @@
 <?php
-	require_once "usesession.php";		// ainult sisseloginud kasutajale
-	require_once "../../../conf.php";	
-	//require_once "fnc_general.php";							
+	require_once "usesession.php";
+	require_once "../../../conf.php";
+	require_once "fnc_general.php";
 	//echo $server_host;
-	$new_title = null;
-	$news_content = null;
 	$news_input_error = null;
+	$news_title = null;
+	$news_content = null;
 	$news_author = null;
-	//var_dump($_POST);											// On olemas ka $_GET		// näitab kõiki postitusi
-	$titleSave = null; 		// pealkirja väli
-	$contentSave = null; 	// sisu väli
-	$authorSave = null;		// autori siu
+	//var_dump($_POST); // on olemas ka $_GET
 	if(isset($_POST["news_submit"])){
 		if(empty($_POST["news_title_input"])){
 			$news_input_error = "Uudise pealkiri on puudu! ";
@@ -31,19 +28,18 @@
 			store_news($news_title, $news_content, $news_author);
 		}
 	}
-
+	
 	function store_news($news_title, $news_content, $news_author){
 		//echo $news_title .$news_content .$news_author;
 		//echo $GLOBALS["server_host"];
-
-		// loome andmebaasi serveri ja baasiga ühenduse
-		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"],);
+		//loome andmebaasis serveriga ja baasiga ühenduse
+		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		//määrame suhtluseks kodeeringu
 		$conn -> set_charset("utf8");
-		// valmistan ette SQL käsu
+		//valmistan ette SQL käsu
 		$stmt = $conn -> prepare("INSERT INTO vr21_news (vr21_news_news_title, vr21_news_news_content, vr21_news_news_author) VALUES (?,?,?)");
 		echo $conn -> error;
-		// ?-ga andmete sidumine i-integer, s-string d-decimal, peavad ühtima väljadega
+		//i - integer   s - string   d - decimal
 		$stmt -> bind_param("sss", $news_title, $news_content, $news_author);
 		$stmt -> execute();
 		$stmt -> close();
@@ -53,39 +49,43 @@
 		$GLOBALS["news_content"] = null;
 		$GLOBALS["news_author"] = null;
 	}
-	function test_input($input) { // sisendandmete valideerimise funktsioon
-  $data = trim($input);
-  $data = stripslashes($input);
-  $data = htmlspecialchars($input);
-  return $input;
-}
-
+	
 ?>
-
 <!DOCTYPE html>
 <html lang="et">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
 	<title>Veebirakendused ja nende loomine 2021</title>
+	<link rel="stylesheet" href="stiil.css">
 </head>
 <body>
-	<h1>Uudiste lisamine !!!</h1>
+	<div class="container">
+	<h1>Uudiste lisamine</h1>
 	<p>See leht on valminud õppetöö raames!</p>
-	<hr>
-	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-		<label for="news_title_input">Uudise pealkiri: </label> <br>
-		<input type="text" id="news_title_input" name="news_title_input" placeholder="Pealkiri" value="<?php echo $titleSave; ?>"><br>
+
+	<form method="POST"action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+		<label for="news_title_input">Uudise pealkiri</label>
 		<br>
-		<label for="news_content_input">Uudise tekst:</label> <br>
-		<textarea name="news_content_input" id="news_content_input" placeholder="Uudise tekst" rows="6" cols="40"><?php echo $contentSave; ?></textarea><br>
+		<input type="text" id="news_title_input" name="news_title_input" placeholder="Pealkiri" value="<?php echo $news_title; ?>">
 		<br>
-		<label for="news_author_input">Uudise kirjutaja. </label> <br>
-		<input type="text" id="news_author_input" name="news_author_input" placeholder="Nimi" value="<?php echo $authorSave; ?>"><br><br>
+		<label for="news_content_input">Uudise tekst</label>
+		<br>
+		<textarea id="news_content_input" name="news_content_input" placeholder="Uudise tekst" rows="6" cols="40"><?php echo $news_content; ?></textarea>
+		<br>
+		<label for="news_author_input">Uudise lisaja nimi</label>
+		<br>
+		<input type="text" id="news_author_input" name="news_author_input" placeholder="Nimi" value="<?php echo $news_author; ?>">
+		<br>
 		<input type="submit" name="news_submit" value="Salvesta uudis!">
-		<br>
 	</form>
-	<p><?php echo $news_input_error; ?></p>
-	<p>Tagasi <a href="page.php">avalehele</a></p>
+	<hr>
+	<p><a href="home.php">Avalehele</a></p>
+	<a href="show_news.php">Uudiste lugemine</a>
+	<p><a href="upload_photo.php">Fotode üleslaadimine</a></p>
+	<p><a href="galerii.php">Galerii</a></p>
 	<p><a href="?logout=1">Logi välja</a></p>
+	<hr>
+	<p><?php echo $news_input_error; ?></p>
+</div>	
 </body>
 </html>

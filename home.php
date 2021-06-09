@@ -18,16 +18,21 @@
 <head>
 	<meta charset="utf-8">
 	<title>Veebirakendused ja nende loomine 2021</title>
+	<link rel="stylesheet" href="stiil.css">
 </head>
 <body>
-	<h1>Sisseloginud kasutaja, vinge süsteem</h1>
+<div class="container">
+	<div class="kiri">
 	<p>See leht on valminud õppetöö raames!</p>
 	<hr>
 	<ul>
-		<li><a href="?logout=1">Logi välja</a></li>
 		<li><a href="add_news.php">Uudiste lisamine</a></li>
 		<li><a href="show_news.php">Uudiste lugemine</a></li>
 		<li><a href="upload_photo.php">Fotode üleslaadimine</a></li>
+		<li><p><a href="galerii.php">Galerii</a></p></li>
+		<li><a href="?logout=1">Logi välja</a></li>
 	</ul>
+</div>
+</div>
 </body>
 </html>

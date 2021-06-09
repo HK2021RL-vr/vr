@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.galerii{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 5rem 0rem 5rem 0rem;
+    padding: 1rem;
+}
+.nupp {
+    opacity: 0.8;
+    font-size: 2rem;
+    background-color: #a77db49e;
+    padding: 1rem;
+}
+.nupp:hover {
+   background-color: bisque;
+}
+.pilt {
+    margin: 0rem 1rem 0rem 1rem;
+ }
+
+a {
+    font-size: 2rem;
+    text-align: center;
+}
