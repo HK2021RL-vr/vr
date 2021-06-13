@@ -14,10 +14,9 @@ function show_pic() {
 
     while ($stmt -> fetch()) {
         
-        $display_photos_html .= '<div class="pilt">';
+		$display_photos_html .= '<div class="pilt">';
         $display_photos_html .= '<img src="../upload_photos_thumbnail/' .$photo_filename_from_db .'" alt="' .$photo_alttext_from_db .'" class="thumb" data-fn="'.$photo_filename_from_db .'" data-id="'.$photo_id_from_db.'">';
 		$display_photos_html .= '<p>'.$user_firstname_from_db ." " .$user_lastname_from_db .'</p></div>';
-
     }
     $stmt -> close();
     $conn -> close();
@@ -45,13 +44,13 @@ function show_pic() {
 				$cut_size_h = $image_w;
 				$cut_y = round(($image_h - $cut_size_h) / 2);
 			}	
-		} elseif($keep_orig_proportion){//kui tuleb originaaproportsioone säilitada
+		} elseif($keep_orig_proportion){//kui tuleb originaal säilitada
 			if($image_w / $w > $image_h / $h){
 				$new_h = round($image_h / ($image_w / $w));
 			} else {
 				$new_w = round($image_w / ($image_h / $h));
 			}
-		} else { //kui on vaja kindlasti etteantud suurust, ehk pisut ka kärpida
+		} else { //kui vaja vähendada
 			if($image_w / $w < $image_h / $h){
 				$cut_size_h = round($image_w / $w * $h);
 				$cut_y = round(($image_h - $cut_size_h) / 2);

@@ -4,14 +4,7 @@
     flex-direction: column;
     align-items: center;
 }
-.galerii{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin: 5rem 0rem 5rem 0rem;
-    padding: 1rem;
-}
+
 .nupp {
     opacity: 0.8;
     font-size: 2rem;
@@ -28,4 +21,15 @@
 a {
     font-size: 2rem;
     text-align: center;
+}
+p {
+    text-align: center;
+}
+.gallery{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 5rem 0rem 5rem 0rem;
+    padding: 1rem;
 }
