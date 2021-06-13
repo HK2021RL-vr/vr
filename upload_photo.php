@@ -109,7 +109,7 @@ if(isset($_POST["photo_submit"])) {
 		<input id="privacy_input_3" name="privacy_input" type="radio" value="1">
 		<label for="privacy_input_3">Avalik</label>
 		<br>
-		<input type="submit" id="js_photo_submit" name="photo_submit" value="Lae pilt üles!">
+		<input type="submit" id="photo_submit" name="photo_submit" value="Lae pilt üles!">
 	</form>
   
 	<hr>
