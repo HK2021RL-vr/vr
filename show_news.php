@@ -55,8 +55,10 @@ $news_html = read_news();
 <head>
 <meta charset="utf-8">
 <title>Veebirakendused ja nende loomine 2021</title>
+<link rel="stylesheet" href="stiil.css">
 </head>
 <body>
+	<div class="container">
 <h1>Uudiste lugemine</h1>
 <p>See leht on valminud õppetöö raames!</p>
 <hr>
@@ -65,7 +67,11 @@ $news_html = read_news();
 <input type="submit" name="count_submit" value="Kuva uudised">
 </form>
 <p><?php echo $news_html; ?></p>
-<p>Tagasi <a href="page.php">avalehele</a></p>
+<p><a href="home.php">Avalehele</a></p>
+<p><a href="add_news.php">Uudiste lisamine</a></p>
+<p><a href="upload_photo.php">Fotode üleslaadimine</a></p>
+<p><a href="galerii.php">Galerii</a></p>
 <p><a href="?logout=1">Logi välja</a></p>
+</div>
 </body>
 </html>
