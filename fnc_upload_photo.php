@@ -24,8 +24,6 @@ function show_pic() {
 
 }
 
-
-
 	function resize_photo($src, $w, $h, $keep_orig_proportion = true){
 		$image_w = imagesx($src);
 		$image_h = imagesy($src);
@@ -92,7 +90,7 @@ function show_pic() {
 	function store_photo_data($image_file_name, $alt, $privacy, $orig_name){
 		$notice = null;
 		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		$stmt = $conn->prepare("INSERT INTO vr21_photos (vr21_photos_userid, vr21_photos_filename, vr21_photos_alttext, vr21_photos_privacy, vr21_photos_origname) VALUES (?, ?, ?, ?, ?)");
+		$stmt = $conn->prepare("INSERT INTO vr21_photos (vr21_photos_userid, vr21_photos_filename, vr21_photos_privacy, vr21_photos_origname) VALUES (?, ?, ?, ?, ?)");
 		echo $conn->error;
 		$stmt->bind_param("issis", $_SESSION["user_id"], $image_file_name, $alt, $privacy, $orig_name);
 		if($stmt->execute()){
@@ -105,3 +103,17 @@ function show_pic() {
 		$conn->close();
 		return $notice;
 	}
+	function store_news_photo( $user_id, $file_name){
+		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
+		$stmt = $conn->prepare("INSERT INTO vr21_news_photos (vr21_photos_filename, vr21_photos_uploader) VALUES (?, ?)");
+		echo $conn->error;
+		$stmt->bind_param("si", $file_name, $user_id);
+		$stmt-> execute();
+		$photo_id = $conn->insert_id;
+
+		$stmt->close();
+		$conn->close();
+		return $photo_id;
+	}
+
+	

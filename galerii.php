@@ -14,7 +14,7 @@ $pictures_to_html = show_pic();
 	<meta charset="utf-8">
 	<title>Veebirakendused ja nende loomine 2021</title>
     <link rel="stylesheet" type="text/css" href="stiil.css">
-    <link rel="stylesheet" type="text/css" herf="modal.css">
+    <link rel="stylesheet" type="text/css" href="modal.css">
     
     <script src="javascript/modal.js" defer></script>
     

@@ -30,7 +30,7 @@ function openModal(e){
 }
 
 function closeModal(){
-    //document.getElementById("modalclose").removeEventListener("click", closeModal);
+    document.getElementById("modalclose").removeEventListener("click", closeModal);
     document.getElementById("storeRating").removeEventListener("click", storeRating);
     modal.style.display = "none";
     modalImg.src = "../images/empty.png";
