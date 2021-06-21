@@ -50,10 +50,7 @@ function storeRating(){
                 if(this.readyState == 4 && this.status == 200){
                     //mida teeme, kui õnnestus
                     document.getElementById("avgRating").innerHTML = "Keskmine hinne: " + this.responseText;
-                    rating = 0;
-                    for(let i = 1; i < 6; i ++){
-                        document.getElementById("rate" + i).checked = false;
-                    }
+                    
                 }
             };
             webRequest.open("GET", "store_photorating.php?rating=" + rating + "&photoid=" + photoId, true);

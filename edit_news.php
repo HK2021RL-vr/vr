@@ -18,10 +18,10 @@
 	$allowed_image_types = ['image/jpeg', 'image/png'];
 	$type_names = ['jpg', 'png'];
 	$alias_name = null;
-	$edit_news_id = null; // kui ei ole uudise id-d, siis on ta lihtsalt "null", et vältida veateateid.
-    if(isset($_GET["news_id"])){ // kui kindla uudise id on olemas, siis määrame selle globaalsele muutujale väärtuseks
+	$edit_news_id = null; 
+    if(isset($_GET["news_id"])){ 
         $edit_news_id = $_GET["news_id"];
-        $_SESSION['news_id'] = $edit_news_id; // hoiustan uudise id sessioonimuutujasse, muidu kaob ära, kui POST['news_submit'] toimub
+        $_SESSION['news_id'] = $edit_news_id; 
     }
 	
 	$news_content_html = get_news($_SESSION['news_id']);
@@ -62,7 +62,7 @@
 		}
 	
 	}
-	
+	//Kood salvestab muudetud uudise, kui on valitud pilt. Muidu ei toimi.
 	function store_news($news_title, $news_content, $news_author, $photo_id, $news_id){
 		//echo $news_title .$news_content .$news_author;
 		//echo $GLOBALS["server_host"];
@@ -100,20 +100,19 @@
             $raw_news_html .= "\n <br> <textarea id='news_content_input' name='news_content_input' placeholder='Uudise tekst' rows='6' cols='40'>" .$news_content_from_db ."</textarea>";
             $raw_news_html .= "\n <br> <label for='news_author_input'>Uudise lisaja nimi</label>";
             $raw_news_html .= "\n <br> <input type='text' id='news_author_input' name='news_author_input' placeholder='Nimi' value='" .$news_author_from_db ."'>";
-            // Kontroll, kas uudisel on ka pilt
+            //pildi kontroll
             if(!empty($news_photo_name_from_db)) {
-                    // Kui on pilt, siis näitame seda ka
                     $raw_news_html .= "\n <br> <label for='file_input'>Uudise pildina hetkel kasutusel: " .$news_photo_name_from_db;
 					$raw_news_html .= "\n <br> <img src=" .$photo_folder .$news_photo_name_from_db ." width='100' height='100'" .">";
                     $raw_news_html .= "\n <br> Muuda uudise pilti: </label>";
                 }
-            else { // kui pole pilti, siis väljastame vastava sõnumi
+            else { // kui foto puudu
                 $raw_news_html .= "\n <br> <label for='file_input'>Uudisel hetkel pilt puudub. <br> Lisa uudisele pilt: </label>";
             }
         }
         $stmt->close();
         $conn->close();
-        return $raw_news_html; // tagastame funktsioonist html-i
+        return $raw_news_html; 
     }
 
 

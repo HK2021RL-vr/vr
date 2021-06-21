@@ -28,7 +28,7 @@
 	<ul>
 		<li><a href="add_news.php">Uudiste lisamine</a></li>
 		<li><a href="show_news.php">Uudiste lugemine</a></li>
-		<li><a href="show_news_edit.php">Uudiste muumine</a></li>
+		<li><a href="show_news_edit.php">Uudiste muutmine</a></li>
 		<li><a href="upload_photo.php">Fotode üleslaadimine</a></li>
 		<li><a href="galerii.php">Galerii</a></li>
 		<li><a href="?logout=1">Logi välja</a></li>

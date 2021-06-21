@@ -73,6 +73,7 @@ $news_html = read_news();
 <p><?php echo $news_html; ?></p>
 <p><a href="home.php">Avalehele</a></p>
 <p><a href="add_news.php">Uudiste lisamine</a></p>
+<p><a href="show_news_edit.php">Uudiste muumine</a></p>
 <p><a href="upload_photo.php">Fotode üleslaadimine</a></p>
 <p><a href="galerii.php">Galerii</a></p>
 <p><a href="?logout=1">Logi välja</a></p>

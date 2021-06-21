@@ -116,6 +116,7 @@ if(isset($_POST["photo_submit"])) {
   <p><a href="home.php">Avalehele</a></p>
   <p><a href="add_news.php">Uudiste lisamine</a></p>
   <p><a href="show_news.php">Uudiste lugemine</a></p>
+  <p><a href="show_news_edit.php">Uudiste muumine</a></p>
   <p><a href="galerii.php">Galerii</a></p>
 	<p><a href="?logout=1">Logi välja</a></p>
 	<hr>

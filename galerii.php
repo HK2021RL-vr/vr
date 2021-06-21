@@ -15,7 +15,6 @@ $pictures_to_html = show_pic();
 	<title>Veebirakendused ja nende loomine 2021</title>
     <link rel="stylesheet" type="text/css" href="stiil.css">
     <link rel="stylesheet" type="text/css" href="modal.css">
-    
     <script src="javascript/modal.js" defer></script>
     
 </head>
@@ -56,6 +55,7 @@ $pictures_to_html = show_pic();
     <p><a href="home.php">Avalehele</a></p>
     <p><a href="add_news.php">Uudiste lisamine</a></li></p>
     <p><a href="show_news.php">Uudiste lugemine</a></p>
+    <p><a href="show_news_edit.php">Uudiste muumine</a></p>
     <p><a href="upload_photo.php">Fotode üleslaadimine</a></p>
     </div>
     </div>
